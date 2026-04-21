@@ -206,6 +206,33 @@
       color: var(--white);
       border-color: var(--blue);
     }
+
+    /* Mobile journey fixes */
+    @media (max-width: 768px) {
+      .journey-intro { margin-bottom: 32px; }
+      .journey-intro p { font-size: .95rem; }
+      .journey-nav { gap: 6px; margin-bottom: 32px; }
+      .journey-pill { padding: 7px 14px; font-size: .72rem; }
+      .step-card { padding: 20px; }
+      .step-card h3 { font-size: 1rem; }
+      .step-card .step-summary { font-size: .84rem; }
+      .step-detail-inner p { font-size: .82rem; }
+      .step-detail-inner .detail-list li { font-size: .82rem; padding: 5px 0 5px 20px; }
+      .timeline { padding: 0 8px; }
+    }
+    @media (max-width: 480px) {
+      .journey-nav { gap: 5px; }
+      .journey-pill { padding: 6px 11px; font-size: .68rem; }
+      .timeline-step,
+      .timeline-step:nth-child(odd),
+      .timeline-step:nth-child(even) { padding-left: 48px; }
+      .timeline::before { left: 18px; }
+      .timeline-step .timeline-dot,
+      .timeline-step:nth-child(odd) .timeline-dot,
+      .timeline-step:nth-child(even) .timeline-dot { left: 9px; width: 16px; height: 16px; }
+      .step-card { padding: 16px; }
+      .step-number { width: 28px; height: 28px; font-size: .72rem; }
+    }
   </style>
 </head>
 <body>
