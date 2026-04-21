@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Skating Journey &mdash; Figure Skating Club of Madison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Journey-specific styles */
+    .journey-intro { max-width: 640px; margin: 0 auto 56px; text-align: center; }
+    .journey-intro p { font-size: 1.05rem; }
+
+    /* Timeline */
+    .timeline { position: relative; max-width: 900px; margin: 0 auto; padding: 0 20px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      top: 0; bottom: 0;
+      width: 3px;
+      background: linear-gradient(to bottom, var(--blue-soft), var(--blue), var(--red));
+      border-radius: 3px;
+    }
+    @media (max-width: 768px) {
+      .timeline::before { left: 24px; }
+    }
+
+    .timeline-step {
+      position: relative;
+      margin-bottom: 12px;
+      width: 50%;
+      cursor: pointer;
+    }
+    .timeline-step:nth-child(odd) {
+      left: 0;
+      padding-right: 48px;
+    }
+    .timeline-step:nth-child(even) {
+      left: 50%;
+      padding-left: 48px;
+    }
+    @media (max-width: 768px) {
+      .timeline-step,
+      .timeline-step:nth-child(odd),
+      .timeline-step:nth-child(even) {
+        width: 100%;
+        left: 0;
+        padding-left: 60px;
+        padding-right: 0;
+      }
+    }
+
+    /* Dot on timeline */
+    .timeline-dot {
+      position: absolute;
+      top: 28px;
+      width: 20px; height: 20px;
+      border-radius: 50%;
+      background: var(--white);
+      border: 3px solid var(--blue);
+      z-index: 2;
+      transition: all .3s ease;
+    }
+    .timeline-step:nth-child(odd) .timeline-dot { right: -10px; }
+    .timeline-step:nth-child(even) .timeline-dot { left: -10px; }
+    @media (max-width: 768px) {
+      .timeline-step .timeline-dot,
+      .timeline-step:nth-child(odd) .timeline-dot,
+      .timeline-step:nth-child(even) .timeline-dot {
+        left: 14px; right: auto;
+      }
+    }
+    .timeline-step.active .timeline-dot,
+    .timeline-step:hover .timeline-dot {
+      background: var(--blue);
+      transform: scale(1.3);
+      box-shadow: 0 0 0 6px rgba(59,130,196,.15);
+    }
+
+    /* Step number */
+    .step-number {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 32px; height: 32px;
+      background: var(--sky);
+      border-radius: 50%;
+      font-size: .8rem; font-weight: 700;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .timeline-step.active .step-number {
+      background: var(--blue);
+      color: var(--white);
+    }
+
+    /* Card content */
+    .step-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      transition: all .3s ease;
+      position: relative;
+    }
+    .step-card:hover,
+    .timeline-step.active .step-card {
+      box-shadow: var(--shadow-md);
+      border-color: var(--blue-soft);
+      transform: translateY(-2px);
+    }
+    .step-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 4px;
+    }
+    .step-card .step-subtitle {
+      font-size: .75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .step-card .step-summary {
+      font-size: .88rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* Expandable detail */
+    .step-detail {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .4s ease, padding .3s ease;
+      padding: 0;
+    }
+    .timeline-step.active .step-detail {
+      max-height: 600px;
+      padding-top: 16px;
+    }
+    .step-detail-inner {
+      border-top: 1px solid var(--border);
+      padding-top: 16px;
+    }
+    .step-detail-inner p {
+      font-size: .85rem;
+      color: var(--text-light);
+      margin-bottom: 10px;
+      line-height: 1.65;
+    }
+    .step-detail-inner .detail-list {
+      margin: 12px 0;
+    }
+    .step-detail-inner .detail-list li {
+      font-size: .84rem;
+      color: var(--text-light);
+      padding: 6px 0 6px 22px;
+      position: relative;
+    }
+    .step-detail-inner .detail-list li::before {
+      content: ''; position: absolute; left: 0; top: 12px;
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--blue-soft); opacity: .5;
+    }
+    .detail-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: .82rem; font-weight: 600;
+      color: var(--blue);
+      margin-top: 8px;
+      transition: gap .2s;
+    }
+    .detail-link:hover { gap: 10px; }
+
+    /* Click hint */
+    .click-hint {
+      display: flex; align-items: center; gap: 6px;
+      font-size: .72rem; font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+    .click-hint svg {
+      width: 14px; height: 14px;
+      color: var(--blue-soft);
+    }
+
+    /* Quick-nav pills */
+    .journey-nav {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      justify-content: center;
+      margin-bottom: 48px;
+    }
+    .journey-pill {
+      padding: 8px 18px;
+      border-radius: 50px;
+      font-size: .78rem; font-weight: 600;
+      background: var(--sky-light);
+      color: var(--text-light);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all .25s;
+    }
+    .journey-pill:hover,
+    .journey-pill.active {
+      background: var(--blue);
+      color: var(--white);
+      border-color: var(--blue);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="container">
+    <a href="index.html" class="nav-logo">
+      <svg viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <line x1="25" y1="2" x2="25" y2="10" stroke="#1a1a1a" stroke-width="1.5"/>
+        <circle cx="25" cy="1" r="1.8" fill="#1a1a1a"/>
+        <path d="M17 20 Q21 10, 25 8 Q29 10, 33 20" fill="#1a1a1a" opacity=".12" stroke="#1a1a1a" stroke-width="1.5"/>
+        <rect x="16" y="19" width="18" height="3" rx=".5" fill="#1a1a1a" opacity=".1" stroke="#1a1a1a" stroke-width="1.2"/>
+        <line x1="19" y1="22" x2="19" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+        <line x1="25" y1="22" x2="25" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+        <line x1="31" y1="22" x2="31" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+        <line x1="13" y1="28" x2="16" y2="25" stroke="#1a1a1a" stroke-width="1.2"/>
+        <line x1="37" y1="28" x2="34" y2="25" stroke="#1a1a1a" stroke-width="1.2"/>
+        <line x1="10" y1="28" x2="40" y2="28" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+        <path d="M6 34 Q25 29, 42 34" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" fill="none"/>
+        <path d="M42 34 L46 31" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+        <circle cx="5" cy="34.5" r="1.5" fill="#1a1a1a" opacity=".3"/>
+      </svg>
+      <div class="nav-logo-text">
+        <span class="club-name">Figure Skating Club</span>
+        <span class="city">Madison, Wisconsin</span>
+      </div>
+    </a>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="journey.html" class="active">Your Journey</a>
+      <a href="coaches.html">Coaches</a>
+      <a href="membership.html">Membership</a>
+      <a href="about.html">About</a>
+      <a href="membership.html" class="nav-cta">Join Now</a>
+    </div>
+  </div>
+</nav>
+
+<section class="page-header">
+  <div class="container">
+    <h1>Your Skating Journey</h1>
+    <p>From your first glide to center ice &mdash; here's how it all unfolds.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="journey-intro">
+      <p>Whether you're 4 or 40, everyone starts somewhere. Skating is a lifelong sport, and Madison has everything you need at every stage. Click any step to learn more.</p>
+    </div>
+
+    <!-- Quick-nav pills -->
+    <div class="journey-nav">
+      <span class="journey-pill active" onclick="scrollToStep(0)">Learn to Skate</span>
+      <span class="journey-pill" onclick="scrollToStep(1)">Build Skills</span>
+      <span class="journey-pill" onclick="scrollToStep(2)">Find a Coach</span>
+      <span class="journey-pill" onclick="scrollToStep(3)">Join the Club</span>
+      <span class="journey-pill" onclick="scrollToStep(4)">Ice Shows</span>
+      <span class="journey-pill" onclick="scrollToStep(5)">Start Competing</span>
+      <span class="journey-pill" onclick="scrollToStep(6)">Synchro Teams</span>
+      <span class="journey-pill" onclick="scrollToStep(7)">Keep Growing</span>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+
+      <!-- Step 1: Learn to Skate -->
+      <div class="timeline-step active" onclick="toggleStep(this, 0)">
+        <div class="timeline-dot"></div>
+        <div class="step-card">
+          <span class="step-number">1</span>
+          <div class="step-subtitle">The Beginning</div>
+          <h3>Learn to Skate</h3>
+          <p class="step-summary">It all starts here. Madison Ice Inc. offers group classes for every age and level &mdash; no experience needed.</p>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              <p>Madison Ice Skating School runs Learn to Skate USA classes at Madison Ice Arena and Hartmeyer Ice Arena throughout the year. Programs include:</p>
+              <ul class="detail-list">
+                <li><strong>Teddy Bear (Ages 2&ndash;4)</strong> &mdash; A parent is on the ice with the child. Learning through play, songs, and games.</li>
+                <li><strong>Snowplow Sam 1&ndash;4 (Ages 4&ndash;6)</strong> &mdash; Fun, comfort, and movement on ice. Games and toys make it exciting.</li>
+                <li><strong>Basic 1&ndash;6 (Ages 6&ndash;13)</strong> &mdash; Proper technique, safety, and progressive skill building from gliding to crossovers.</li>
+                <li><strong>Adult Beginner 1&ndash;3</strong> &mdash; It's never too late! Classes designed for adults learning to skate for the first time.</li>
+              </ul>
+              <p>Sessions run in 6&ndash;8 week blocks, with multiple sessions offered per year. Skaters progress by passing required elements at each level.</p>
+              <a href="https://www.madisoniceinc.com/classdescriptions" class="detail-link">View classes at Madison Ice Inc. &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2: Build Your Skills -->
+      <div class="timeline-step" onclick="toggleStep(this, 1)">
+        <div class="timeline-dot"></div>
+        <div class="step-card">
+          <span class="step-number">2</span>
+          <div class="step-subtitle">Level Up</div>
+          <h3>Build Your Skills</h3>
+          <p class="step-summary">After basics, you'll move into Free Skate levels where real figure skating skills come alive &mdash; jumps, spins, and footwork.</p>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              <p>Once you've completed the Basic levels, it's time for the Free Skate curriculum &mdash; this is where figure skating really begins:</p>
+              <ul class="detail-list">
+                <li><strong>Pre Free Skate</strong> &mdash; Introduction to edges, turns, and the fundamentals of free skating.</li>
+                <li><strong>Free Skate 1&ndash;6</strong> &mdash; Each level covers three areas: skating skills, jumps, and spins. You'll learn waltz jumps, toe loops, salchows, and basic spins.</li>
+                <li><strong>Hockey Track (1&ndash;4)</strong> &mdash; If hockey is your goal, there's a dedicated skills progression too.</li>
+              </ul>
+              <p>This is also when many skaters start thinking about private coaching to accelerate their progress.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Find a Coach -->
+      <div class="timeline-step" onclick="toggleStep(this, 2)">
+        <div class="timeline-dot"></div>
+        <div class="step-card">
+          <span class="step-number">3</span>
+          <div class="step-subtitle">Go Further</div>
+          <h3>Find a Private Coach</h3>
+          <p class="step-summary">Ready to take things to the next level? A private coach gives you personalized attention and helps you set real goals.</p>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              <p>Private lessons are where skaters make the biggest leaps. FSCM has 15 certified coaches with a range of specialties. Here's how to get started:</p>
+              <ul class="detail-list">
+                <li><strong>Watch and ask</strong> &mdash; Observe coaches during club sessions. Ask other skaters and parents for recommendations.</li>
+                <li><strong>Try a lesson</strong> &mdash; Most coaches offer trial lessons so you can find the right fit for your learning style.</li>
+                <li><strong>Consider your goals</strong> &mdash; Some coaches specialize in freestyle and jumps, others in ice dance, moves in the field, or choreography.</li>
+                <li><strong>Credentials matter</strong> &mdash; All FSCM coaches maintain U.S. Figure Skating certification and Coach I.C.E. compliance.</li>
+              </ul>
+              <p>Private lessons are typically 20&ndash;30 minutes and take place during club freestyle sessions. Costs vary by coach.</p>
+              <a href="coaches.html" class="detail-link">Meet our coaches &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4: Join FSCM -->
+      <div class="timeline-step" onclick="toggleStep(this, 3)">
+        <div class="timeline-dot"></div>
+        <div class="step-card">
+          <span class="step-number">4</span>
+          <div class="step-subtitle">Become Part of the Family</div>
+          <h3>Join the Club</h3>
+          <p class="step-summary">Joining FSCM gives you access to club ice, competitions, test sessions, ice shows, and a welcoming skating community.</p>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              <p>FSCM membership unlocks everything the club has to offer:</p>
+              <ul class="detail-list">
+                <li><strong>500+ hours of club ice</strong> at Madison Ice Arena and Hartmeyer Ice Arena</li>
+                <li><strong>U.S. Figure Skating membership</strong> included &mdash; required for testing and competing</li>
+                <li><strong>Test sessions</strong> to officially track your progress through the USFS level structure</li>
+                <li><strong>Competition eligibility</strong> for USFS-sanctioned events</li>
+                <li><strong>Ice show participation</strong> &mdash; perform in our annual show!</li>
+                <li><strong>Community</strong> &mdash; social events, service projects, and lifelong friendships</li>
+              </ul>
+              <a href="membership.html" class="detail-link">View membership options &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 5: Ice Shows -->
+      <div class="timeline-step" onclick="toggleStep(this, 4)">
+        <div class="timeline-dot"></div>
+        <div class="step-card">
+          <span class="step-number">5</span>
+          <div class="step-subtitle">Open to Everyone</div>
+          <h3>Perform in Ice Shows</h3>
+          <p class="step-summary">Our annual ice show is one of the highlights of the year &mdash; and it's open to skaters of ALL levels, from beginners to advanced.</p>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              <p>You don't have to be a competitive skater to perform! Ice shows are for everyone in the club:</p>
+              <ul class="detail-list">
+                <li><strong>Group numbers</strong> &mdash; Skate with others at your level in themed choreography</li>
+                <li><strong>Solo &amp; duet opportunities</strong> &mdash; For more advanced skaters who want to showcase their skills</li>
+                <li><strong>Costumes &amp; music</strong> &mdash; Each year has a fun theme (this year: Blades on Broadway!)</li>
+                <li><strong>A real audience</strong> &mdash; Family, friends, and the Madison community come out to watch</li>
+              </ul>
+              <p>For many skaters, the ice show is their favorite part of the year. It's a chance to perform, build confidence, and celebrate all the hard work.</p>
+              <a href="events.html" class="detail-link">See upcoming shows &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 6: Start Competing -->
+      <div class="timeline-step" onclick="toggleStep(this, 5)">
+        <div class="timeline-dot"></div>
+        <div class="step-card">
+          <span class="step-number">6</span>
+          <div class="step-subtitle">Test Your Skills</div>
+          <h3>Start Competing</h3>
+          <p class="step-summary">When you're ready, competitions are an incredible way to challenge yourself, set goals, and see how you measure up.</p>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              <p>There are several competition pathways, and your coach will help you decide when you're ready:</p>
+              <ul class="detail-list">
+                <li><strong>Compete USA</strong> &mdash; The perfect entry point. Low-pressure, fun, and designed for beginners. FSCM hosts the Badger Classic in this format.</li>
+                <li><strong>Excel Series</strong> &mdash; More advanced competitions with structured levels, but still balanced for skaters who aren't on the full competitive track.</li>
+                <li><strong>Championship/Qualifying</strong> &mdash; The national qualifying track for skaters aiming for Regionals, Sectionals, and beyond.</li>
+              </ul>
+              <p><strong>What you need to compete:</strong></p>
+              <ul class="detail-list">
+                <li>U.S. Figure Skating membership (included with FSCM membership)</li>
+                <li>Appropriate test level passed for your competition level</li>
+                <li>A program with music, choreographed with your coach</li>
+                <li>Competition attire that meets USFS guidelines</li>
+              </ul>
+              <p>FSCM hosts USFS test sessions on the 14th and last day of each month &mdash; both virtual and in-person.</p>
+              <a href="events.html" class="detail-link">View competitions &amp; test sessions &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 7: Synchro Teams -->
+      <div class="timeline-step" onclick="toggleStep(this, 6)">
+        <div class="timeline-dot"></div>
+        <div class="step-card">
+          <span class="step-number">7</span>
+          <div class="step-subtitle">Skate as a Team</div>
+          <h3>Join a Synchro Team</h3>
+          <p class="step-summary">Love skating with others? Synchronized skating teams combine figure skating with teamwork, formations, and shared goals.</p>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              <p>Madison is home to the <strong>Madison Ice Diamonds</strong>, with teams at multiple levels:</p>
+              <ul class="detail-list">
+                <li><strong>Aspire Snowplow Sam</strong> &mdash; For the youngest skaters just starting out</li>
+                <li><strong>Aspire Beginner &amp; Pre-Preliminary</strong> &mdash; Building skills and learning formations</li>
+                <li><strong>Pre-Juvenile &amp; Open Juvenile</strong> &mdash; Competitive synchro at regional and national events</li>
+                <li><strong>Open Adult/Masters</strong> &mdash; Yes, adults can do synchro too!</li>
+              </ul>
+              <p>There's also an <strong>Intro to Synchronized Skating</strong> class through Madison Ice Inc. where you can try it out before committing to a team. Synchro teaches teamwork, discipline, and creates incredible friendships.</p>
+              <a href="https://madisonicediamonds.weebly.com/about.html" class="detail-link">Learn about the Madison Ice Diamonds &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 8: Keep Growing -->
+      <div class="timeline-step" onclick="toggleStep(this, 7)">
+        <div class="timeline-dot"></div>
+        <div class="step-card">
+          <span class="step-number">8</span>
+          <div class="step-subtitle">The Journey Continues</div>
+          <h3>Keep Growing</h3>
+          <p class="step-summary">Skating is a lifelong sport. Whether you're chasing gold or just chasing joy on the ice, there's always another goal ahead.</p>
+          <div class="step-detail">
+            <div class="step-detail-inner">
+              <p>The beauty of figure skating is that it never ends. As you progress, you can:</p>
+              <ul class="detail-list">
+                <li><strong>Pass higher USFS tests</strong> &mdash; Work your way through Pre-Preliminary, Preliminary, Pre-Juvenile, Juvenile, Intermediate, Novice, Junior, and Senior levels</li>
+                <li><strong>Compete in adult events</strong> &mdash; FSCM hosts the Midwestern Adult Sectional Championships</li>
+                <li><strong>Give back</strong> &mdash; Help with the club's community service projects, mentor younger skaters, or volunteer at competitions</li>
+                <li><strong>Become a coach</strong> &mdash; Many of our coaches started right here in Madison</li>
+              </ul>
+              <p>Whatever your goals, FSCM is here to support you every step of the way.</p>
+              <a href="about.html" class="detail-link">Learn more about FSCM &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta-banner">
+  <div class="container">
+    <span class="section-label">Ready to Start?</span>
+    <h2>Your Journey Begins Here</h2>
+    <p>Whether you're lacing up for the first time or looking for your next challenge, we'd love to welcome you.</p>
+    <div style="display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+      <a href="https://www.madisoniceinc.com/classdescriptions" class="btn btn-white btn-lg">Learn to Skate Classes</a>
+      <a href="membership.html" class="btn btn-ghost btn-lg">Join FSCM</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo-wrap">
+          <svg viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="25" y1="2" x2="25" y2="10" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/>
+            <circle cx="25" cy="1" r="1.8" fill="rgba(255,255,255,.6)"/>
+            <path d="M17 20 Q21 10, 25 8 Q29 10, 33 20" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+            <rect x="16" y="19" width="18" height="3" rx=".5" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+            <line x1="19" y1="22" x2="19" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+            <line x1="25" y1="22" x2="25" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+            <line x1="31" y1="22" x2="31" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+            <line x1="13" y1="28" x2="16" y2="25" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+            <line x1="37" y1="28" x2="34" y2="25" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+            <line x1="10" y1="28" x2="40" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round"/>
+            <path d="M6 34 Q25 29, 42 34" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round" fill="none"/>
+            <path d="M42 34 L46 31" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+          <span>Figure Skating Club of Madison</span>
+        </div>
+        <p>A nonprofit promoting figure skating in Madison, Wisconsin since 1963.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="events.html">Events</a></li>
+          <li><a href="coaches.html">Coaches</a></li>
+          <li><a href="membership.html">Membership</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Events</h4>
+        <ul>
+          <li><a href="events.html">Ice Shows</a></li>
+          <li><a href="events.html">Competitions</a></li>
+          <li><a href="events.html">Test Sessions</a></li>
+          <li><a href="events.html">Calendar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="about.html">Contact Us</a></li>
+          <li><a href="membership.html">Join FSCM</a></li>
+          <li><a href="about.html">Leadership</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Figure Skating Club of Madison. All rights reserved.</span>
+      <span>A U.S. Figure Skating Member Club</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+  });
+
+  // Timeline interaction
+  const steps = document.querySelectorAll('.timeline-step');
+  const pills = document.querySelectorAll('.journey-pill');
+
+  function toggleStep(el, index) {
+    const wasActive = el.classList.contains('active');
+    // Close all
+    steps.forEach(s => s.classList.remove('active'));
+    pills.forEach(p => p.classList.remove('active'));
+    // Toggle
+    if (!wasActive) {
+      el.classList.add('active');
+      pills[index].classList.add('active');
+    }
+  }
+
+  function scrollToStep(index) {
+    const step = steps[index];
+    // Close all, open target
+    steps.forEach(s => s.classList.remove('active'));
+    pills.forEach(p => p.classList.remove('active'));
+    step.classList.add('active');
+    pills[index].classList.add('active');
+    // Scroll into view
+    step.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.step-card').forEach(el => {
+    el.classList.add('reveal');
+    observer.observe(el);
+  });
+</script>
+
+</body>
+</html>
