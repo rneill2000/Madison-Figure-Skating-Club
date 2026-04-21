@@ -2,7 +2,7 @@
   <!-- FSCM Logo - Clean line-art recreation, no background fills -->
 
   <!-- "Figure Skating Club of" text - stacked, left side -->
-  <text font-family="'Playfair Display', 'Georgia', serif" font-size="22" font-style="italic" font-weight="500" fill="#1a1a1a" letter-spacing="0.3">
+  <text font-family="'Poppins', 'Helvetica Neue', sans-serif" font-size="22" font-style="italic" font-weight="500" fill="#1a1a1a" letter-spacing="0.3">
     <tspan x="72" y="68">Figure</tspan>
     <tspan x="58" y="92">Skating</tspan>
     <tspan x="66" y="116">Club of</tspan>
@@ -70,5 +70,5 @@
   <circle cx="52" cy="146" r="3" fill="#1a1a1a" opacity="0.3"/>
 
   <!-- "Madison" in red script -->
-  <text x="210" y="195" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" font-size="58" font-weight="700" font-style="italic" fill="#c0392b" letter-spacing="1.5">Madison</text>
+  <text x="210" y="195" text-anchor="middle" font-family="'Poppins', 'Helvetica Neue', sans-serif" font-size="58" font-weight="700" font-style="italic" fill="#c0392b" letter-spacing="1.5">Madison</text>
 </svg>
