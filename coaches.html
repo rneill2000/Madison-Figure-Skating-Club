@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coaches &mdash; Figure Skating Club of Madison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Spire -->
+          <line x1="25" y1="2" x2="25" y2="10" stroke="#1a1a1a" stroke-width="1.5"/>
+          <circle cx="25" cy="1" r="1.8" fill="#1a1a1a"/>
+          <!-- Dome -->
+          <path d="M17 20 Q21 10, 25 8 Q29 10, 33 20" fill="#1a1a1a" opacity=".12" stroke="#1a1a1a" stroke-width="1.5"/>
+          <!-- Dome base -->
+          <rect x="16" y="19" width="18" height="3" rx=".5" fill="#1a1a1a" opacity=".1" stroke="#1a1a1a" stroke-width="1.2"/>
+          <!-- Columns -->
+          <line x1="19" y1="22" x2="19" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+          <line x1="25" y1="22" x2="25" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+          <line x1="31" y1="22" x2="31" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+          <!-- Wings -->
+          <line x1="13" y1="28" x2="16" y2="25" stroke="#1a1a1a" stroke-width="1.2"/>
+          <line x1="37" y1="28" x2="34" y2="25" stroke="#1a1a1a" stroke-width="1.2"/>
+          <!-- Base -->
+          <line x1="10" y1="28" x2="40" y2="28" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+          <!-- Blade -->
+          <path d="M6 34 Q25 29, 42 34" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M42 34 L46 31" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="5" cy="34.5" r="1.5" fill="#1a1a1a" opacity=".3"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span class="club-name">Figure Skating Club</span>
+          <span class="city">Madison, Wisconsin</span>
+        </div>
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="coaches.html" class="active">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="about.html">About</a>
+        <a href="membership.html" class="nav-cta">Join Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Our Coaches</h1>
+      <p>USFS-certified professionals dedicated to helping skaters of all levels reach their goals.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Team</span>
+        <h2>Meet the Coaches</h2>
+        <div class="divider"></div>
+        <p>All FSCM coaches maintain U.S. Figure Skating certification, Coach I.C.E., and continuing education compliance.</p>
+      </div>
+      <div class="card-grid cols-4">
+        <div class="coach-card"><div class="coach-avatar">A</div><h3>Coach Name</h3><div class="specialty">Freestyle &amp; Moves</div></div>
+        <div class="coach-card"><div class="coach-avatar">B</div><h3>Coach Name</h3><div class="specialty">Singles &amp; Ice Dance</div></div>
+        <div class="coach-card"><div class="coach-avatar">C</div><h3>Coach Name</h3><div class="specialty">Learn to Skate</div></div>
+        <div class="coach-card"><div class="coach-avatar">D</div><h3>Coach Name</h3><div class="specialty">Competitive Freestyle</div></div>
+        <div class="coach-card"><div class="coach-avatar">E</div><h3>Coach Name</h3><div class="specialty">Synchronized Skating</div></div>
+        <div class="coach-card"><div class="coach-avatar">F</div><h3>Coach Name</h3><div class="specialty">Adult Skating</div></div>
+        <div class="coach-card"><div class="coach-avatar">G</div><h3>Coach Name</h3><div class="specialty">Pairs &amp; Theatre</div></div>
+        <div class="coach-card"><div class="coach-avatar">H</div><h3>Coach Name</h3><div class="specialty">Freestyle &amp; Jumps</div></div>
+        <div class="coach-card"><div class="coach-avatar">I</div><h3>Coach Name</h3><div class="specialty">Moves in the Field</div></div>
+        <div class="coach-card"><div class="coach-avatar">J</div><h3>Coach Name</h3><div class="specialty">Ice Dance</div></div>
+        <div class="coach-card"><div class="coach-avatar">K</div><h3>Coach Name</h3><div class="specialty">Beginning &amp; Intermediate</div></div>
+        <div class="coach-card"><div class="coach-avatar">L</div><h3>Coach Name</h3><div class="specialty">Off-Ice Training</div></div>
+      </div>
+      <p class="text-center mt-24" style="color:var(--text-light);font-size:.88rem;">Coach names are placeholders &mdash; update with your actual coach information.<br>For a complete list, <a href="about.html" style="color:var(--blue);">contact the club</a>.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container two-col">
+      <div class="info-block">
+        <span class="section-label">Guidance</span>
+        <h2 style="font-size:1.5rem;">Finding the Right Coach</h2>
+        <p>Choosing a coach is an important decision. Consider your skating goals, preferred training style, and schedule.</p>
+        <p>Our coaches utilize on-ice and off-ice training methods, including harness work and contemporary techniques.</p>
+        <p><a href="https://www.usfigureskating.org/" style="color:var(--blue);font-weight:600;">U.S. Figure Skating</a> offers resources to help you select the right coach.</p>
+      </div>
+      <div class="info-block">
+        <span class="section-label">Standards</span>
+        <h2 style="font-size:1.5rem;">Coach Requirements</h2>
+        <p>All FSCM coaches must maintain:</p>
+        <ul>
+          <li>U.S. Figure Skating membership</li>
+          <li>Core Certified Coach status</li>
+          <li>Coach I.C.E. certification</li>
+          <li>Current registration with FSCM</li>
+          <li>Continuing education compliance</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <span class="section-label">Get Started</span>
+      <h2>Questions About Coaching?</h2>
+      <p>Reach out and we'll help connect you with the right coach for your goals.</p>
+      <a href="about.html" class="btn btn-white btn-lg">Contact Us</a>
+    </div>
+  </section>
+
+
+<!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <svg viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="25" y1="2" x2="25" y2="10" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/>
+              <circle cx="25" cy="1" r="1.8" fill="rgba(255,255,255,.6)"/>
+              <path d="M17 20 Q21 10, 25 8 Q29 10, 33 20" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <rect x="16" y="19" width="18" height="3" rx=".5" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+              <line x1="19" y1="22" x2="19" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <line x1="25" y1="22" x2="25" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <line x1="31" y1="22" x2="31" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <line x1="13" y1="28" x2="16" y2="25" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+              <line x1="37" y1="28" x2="34" y2="25" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+              <line x1="10" y1="28" x2="40" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 34 Q25 29, 42 34" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M42 34 L46 31" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Figure Skating Club of Madison</span>
+          </div>
+          <p>A nonprofit promoting figure skating in Madison, Wisconsin since 1963.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="coaches.html">Coaches</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Events</h4>
+          <ul>
+            <li><a href="events.html">Ice Shows</a></li>
+            <li><a href="events.html">Competitions</a></li>
+            <li><a href="events.html">Test Sessions</a></li>
+            <li><a href="events.html">Calendar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="about.html">Contact Us</a></li>
+            <li><a href="membership.html">Join FSCM</a></li>
+            <li><a href="about.html">Leadership</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Figure Skating Club of Madison. All rights reserved.</span>
+        <span>A U.S. Figure Skating Member Club</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.card, .coach-card, .info-block').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

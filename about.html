@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About &mdash; Figure Skating Club of Madison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Spire -->
+          <line x1="25" y1="2" x2="25" y2="10" stroke="#1a1a1a" stroke-width="1.5"/>
+          <circle cx="25" cy="1" r="1.8" fill="#1a1a1a"/>
+          <!-- Dome -->
+          <path d="M17 20 Q21 10, 25 8 Q29 10, 33 20" fill="#1a1a1a" opacity=".12" stroke="#1a1a1a" stroke-width="1.5"/>
+          <!-- Dome base -->
+          <rect x="16" y="19" width="18" height="3" rx=".5" fill="#1a1a1a" opacity=".1" stroke="#1a1a1a" stroke-width="1.2"/>
+          <!-- Columns -->
+          <line x1="19" y1="22" x2="19" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+          <line x1="25" y1="22" x2="25" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+          <line x1="31" y1="22" x2="31" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+          <!-- Wings -->
+          <line x1="13" y1="28" x2="16" y2="25" stroke="#1a1a1a" stroke-width="1.2"/>
+          <line x1="37" y1="28" x2="34" y2="25" stroke="#1a1a1a" stroke-width="1.2"/>
+          <!-- Base -->
+          <line x1="10" y1="28" x2="40" y2="28" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+          <!-- Blade -->
+          <path d="M6 34 Q25 29, 42 34" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M42 34 L46 31" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="5" cy="34.5" r="1.5" fill="#1a1a1a" opacity=".3"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span class="club-name">Figure Skating Club</span>
+          <span class="city">Madison, Wisconsin</span>
+        </div>
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="about.html" class="active">About</a>
+        <a href="membership.html" class="nav-cta">Join Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>About FSCM</h1>
+      <p>Promoting figure skating in Madison since 1963.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container two-col">
+      <div class="info-block">
+        <span class="section-label">Our History</span>
+        <h2 style="font-size:1.5rem;">Our Story</h2>
+        <p>The Figure Skating Club of Madison was founded on December 2, 1963 as a nonprofit dedicated to promoting figure skating in the greater Madison area.</p>
+        <p>For over 60 years, FSCM has provided a supportive community for skaters of all ages and skill levels. We are a proud affiliated member club of U.S. Figure Skating.</p>
+        <p>Today, our club has more than 180 members and contracts over 500 annual ice hours at two home arenas.</p>
+      </div>
+      <div class="info-block">
+        <span class="section-label">Our Purpose</span>
+        <h2 style="font-size:1.5rem;">Our Mission</h2>
+        <p>FSCM exists to promote and advance figure skating through:</p>
+        <ul>
+          <li>Providing quality ice time and training facilities</li>
+          <li>Supporting skaters in competition and testing</li>
+          <li>Producing annual ice shows and community events</li>
+          <li>Maintaining a welcoming skating community</li>
+          <li>Encouraging sportsmanship and personal growth</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Rinks</span>
+        <h2>Our Home Ice</h2>
+        <div class="divider"></div>
+        <p>FSCM contracts ice at two arenas in the Madison area.</p>
+      </div>
+      <div class="card-grid cols-2">
+        <div class="card">
+          <h3>Madison Ice Arena</h3>
+          <p>Our primary home ice. Hosts most club sessions, competitions, and ice shows.</p>
+          <p class="mt-16" style="font-size:.82rem;color:var(--text-light);">725 Forward Dr, Madison, WI 53711</p>
+        </div>
+        <div class="card">
+          <h3>Hartmeyer Ice Arena</h3>
+          <p>Our second home arena, providing additional ice time for sessions and practice.</p>
+          <p class="mt-16" style="font-size:.82rem;color:var(--text-light);">1834 Commercial Ave, Madison, WI 53704</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:800px;">
+      <div class="section-header">
+        <span class="section-label">Board</span>
+        <h2>Leadership</h2>
+        <div class="divider"></div>
+        <p>FSCM is led by a volunteer board of directors elected by the membership.</p>
+      </div>
+      <div class="card" style="padding:0;overflow:hidden;">
+        <table class="clean-table" style="margin:0;">
+          <thead><tr><th>Role</th><th>Name</th></tr></thead>
+          <tbody>
+            <tr><td><strong>President</strong></td><td>Board Member Name</td></tr>
+            <tr><td><strong>Vice President</strong></td><td>Board Member Name</td></tr>
+            <tr><td><strong>Secretary</strong></td><td>Board Member Name</td></tr>
+            <tr><td><strong>Treasurer</strong></td><td>Board Member Name</td></tr>
+            <tr><td><strong>Test Chair</strong></td><td>Board Member Name</td></tr>
+            <tr><td><strong>Competition Chair</strong></td><td>Board Member Name</td></tr>
+            <tr><td><strong>Ice Show Chair</strong></td><td>Board Member Name</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-center mt-16" style="font-size:.82rem;color:var(--text-light);">Board member names are placeholders &mdash; update with actual leadership info.</p>
+    </div>
+  </section>
+
+  <section class="section section-alt" id="contact">
+    <div class="container" style="max-width:680px;">
+      <div class="section-header">
+        <span class="section-label">Get in Touch</span>
+        <h2>Contact Us</h2>
+        <div class="divider"></div>
+        <p>Have questions? We'd love to hear from you.</p>
+      </div>
+      <div class="card" style="padding:36px;">
+        <form onsubmit="event.preventDefault(); alert('Thank you! Your message has been sent.');">
+          <div class="form-row">
+            <div class="form-group"><label>First Name</label><input type="text" required></div>
+            <div class="form-group"><label>Last Name</label><input type="text" required></div>
+          </div>
+          <div class="form-group"><label>Email</label><input type="email" required></div>
+          <div class="form-group"><label>Subject</label>
+            <select><option>General Inquiry</option><option>Membership</option><option>Events &amp; Competitions</option><option>Coaching</option><option>Ice Show</option><option>Other</option></select>
+          </div>
+          <div class="form-group"><label>Message</label><textarea rows="5" required></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:680px;">
+      <div class="section-header">
+        <span class="section-label">Resources</span>
+        <h2>Useful Links</h2>
+        <div class="divider"></div>
+      </div>
+      <div class="card-grid cols-2">
+        <a href="https://www.usfigureskating.org/" class="card text-center"><h4>U.S. Figure Skating</h4><p>National governing body</p></a>
+        <a href="https://www.fscmadison.com/" class="card text-center"><h4>FSCM Member Portal</h4><p>Login for current members</p></a>
+      </div>
+    </div>
+  </section>
+
+
+<!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <svg viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="25" y1="2" x2="25" y2="10" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/>
+              <circle cx="25" cy="1" r="1.8" fill="rgba(255,255,255,.6)"/>
+              <path d="M17 20 Q21 10, 25 8 Q29 10, 33 20" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <rect x="16" y="19" width="18" height="3" rx=".5" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+              <line x1="19" y1="22" x2="19" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <line x1="25" y1="22" x2="25" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <line x1="31" y1="22" x2="31" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <line x1="13" y1="28" x2="16" y2="25" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+              <line x1="37" y1="28" x2="34" y2="25" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+              <line x1="10" y1="28" x2="40" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 34 Q25 29, 42 34" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M42 34 L46 31" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Figure Skating Club of Madison</span>
+          </div>
+          <p>A nonprofit promoting figure skating in Madison, Wisconsin since 1963.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="coaches.html">Coaches</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Events</h4>
+          <ul>
+            <li><a href="events.html">Ice Shows</a></li>
+            <li><a href="events.html">Competitions</a></li>
+            <li><a href="events.html">Test Sessions</a></li>
+            <li><a href="events.html">Calendar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="about.html">Contact Us</a></li>
+            <li><a href="membership.html">Join FSCM</a></li>
+            <li><a href="about.html">Leadership</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Figure Skating Club of Madison. All rights reserved.</span>
+        <span>A U.S. Figure Skating Member Club</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.card, .info-block').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>

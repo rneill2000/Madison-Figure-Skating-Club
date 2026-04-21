@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 230" fill="none">
+  <!-- FSCM Logo - Clean line-art recreation, no background fills -->
+
+  <!-- "Figure Skating Club of" text - stacked, left side -->
+  <text font-family="'Playfair Display', 'Georgia', serif" font-size="22" font-style="italic" font-weight="500" fill="#1a1a1a" letter-spacing="0.3">
+    <tspan x="72" y="68">Figure</tspan>
+    <tspan x="58" y="92">Skating</tspan>
+    <tspan x="66" y="116">Club of</tspan>
+  </text>
+
+  <!-- Capitol Building - right of text -->
+  <g id="capitol" transform="translate(185, 18)">
+    <!-- Spire/flagpole -->
+    <line x1="62" y1="0" x2="62" y2="24" stroke="#1a1a1a" stroke-width="2.5"/>
+    <circle cx="62" cy="-2" r="3.5" fill="#1a1a1a"/>
+
+    <!-- Dome outline only -->
+    <path d="M36 62 Q49 28, 62 22 Q75 28, 88 62" fill="none" stroke="#1a1a1a" stroke-width="2.5"/>
+    <!-- Inner dome rib -->
+    <path d="M48 58 Q55 34, 62 28 Q69 34, 76 58" stroke="#1a1a1a" stroke-width="1.3" fill="none"/>
+
+    <!-- Dome base band - strokes only -->
+    <line x1="32" y1="62" x2="92" y2="62" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="32" y1="68" x2="92" y2="68" stroke="#1a1a1a" stroke-width="1.5"/>
+
+    <!-- Upper colonnade -->
+    <line x1="40" y1="68" x2="40" y2="82" stroke="#1a1a1a" stroke-width="2.2"/>
+    <line x1="51" y1="68" x2="51" y2="82" stroke="#1a1a1a" stroke-width="2.2"/>
+    <line x1="62" y1="68" x2="62" y2="82" stroke="#1a1a1a" stroke-width="2.2"/>
+    <line x1="73" y1="68" x2="73" y2="82" stroke="#1a1a1a" stroke-width="2.2"/>
+    <line x1="84" y1="68" x2="84" y2="82" stroke="#1a1a1a" stroke-width="2.2"/>
+
+    <!-- Entablature lines -->
+    <line x1="34" y1="82" x2="90" y2="82" stroke="#1a1a1a" stroke-width="2"/>
+    <line x1="24" y1="87" x2="100" y2="87" stroke="#1a1a1a" stroke-width="1.5"/>
+
+    <!-- Arched windows -->
+    <path d="M38 99 Q41 92, 44 99" stroke="#1a1a1a" stroke-width="1.3" fill="none"/>
+    <path d="M50 99 Q53 92, 56 99" stroke="#1a1a1a" stroke-width="1.3" fill="none"/>
+    <path d="M62 99 Q65 92, 68 99" stroke="#1a1a1a" stroke-width="1.3" fill="none"/>
+    <path d="M74 99 Q77 92, 80 99" stroke="#1a1a1a" stroke-width="1.3" fill="none"/>
+
+    <!-- Wings - line art only -->
+    <line x1="0" y1="108" x2="24" y2="87" stroke="#1a1a1a" stroke-width="1.5"/>
+    <line x1="0" y1="108" x2="24" y2="108" stroke="#1a1a1a" stroke-width="1.5"/>
+    <line x1="124" y1="108" x2="100" y2="87" stroke="#1a1a1a" stroke-width="1.5"/>
+    <line x1="124" y1="108" x2="100" y2="108" stroke="#1a1a1a" stroke-width="1.5"/>
+
+    <!-- Lower columns spanning full width -->
+    <line x1="6" y1="100" x2="6" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+    <line x1="16" y1="95" x2="16" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+    <line x1="30" y1="89" x2="30" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+    <line x1="42" y1="89" x2="42" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+    <line x1="54" y1="89" x2="54" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+    <line x1="66" y1="89" x2="66" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+    <line x1="78" y1="89" x2="78" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+    <line x1="90" y1="89" x2="90" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+    <line x1="108" y1="95" x2="108" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+    <line x1="118" y1="100" x2="118" y2="108" stroke="#1a1a1a" stroke-width="1.8"/>
+
+    <!-- Base platform -->
+    <line x1="-8" y1="108" x2="132" y2="108" stroke="#1a1a1a" stroke-width="2.8" stroke-linecap="round"/>
+  </g>
+
+  <!-- Skate blade - sweeps under the full composition -->
+  <path d="M55 145 Q200 126, 335 145" stroke="#1a1a1a" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+  <!-- Toe pick -->
+  <path d="M335 145 L350 137" stroke="#1a1a1a" stroke-width="2.8" stroke-linecap="round"/>
+  <!-- Heel dot -->
+  <circle cx="52" cy="146" r="3" fill="#1a1a1a" opacity="0.3"/>
+
+  <!-- "Madison" in red script -->
+  <text x="210" y="195" text-anchor="middle" font-family="'Playfair Display', 'Georgia', serif" font-size="58" font-weight="700" font-style="italic" fill="#c0392b" letter-spacing="1.5">Madison</text>
+</svg>

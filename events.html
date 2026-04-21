@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events &mdash; Figure Skating Club of Madison</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+  <nav class="nav" id="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">
+        <svg viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Spire -->
+          <line x1="25" y1="2" x2="25" y2="10" stroke="#1a1a1a" stroke-width="1.5"/>
+          <circle cx="25" cy="1" r="1.8" fill="#1a1a1a"/>
+          <!-- Dome -->
+          <path d="M17 20 Q21 10, 25 8 Q29 10, 33 20" fill="#1a1a1a" opacity=".12" stroke="#1a1a1a" stroke-width="1.5"/>
+          <!-- Dome base -->
+          <rect x="16" y="19" width="18" height="3" rx=".5" fill="#1a1a1a" opacity=".1" stroke="#1a1a1a" stroke-width="1.2"/>
+          <!-- Columns -->
+          <line x1="19" y1="22" x2="19" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+          <line x1="25" y1="22" x2="25" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+          <line x1="31" y1="22" x2="31" y2="28" stroke="#1a1a1a" stroke-width="1.3"/>
+          <!-- Wings -->
+          <line x1="13" y1="28" x2="16" y2="25" stroke="#1a1a1a" stroke-width="1.2"/>
+          <line x1="37" y1="28" x2="34" y2="25" stroke="#1a1a1a" stroke-width="1.2"/>
+          <!-- Base -->
+          <line x1="10" y1="28" x2="40" y2="28" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round"/>
+          <!-- Blade -->
+          <path d="M6 34 Q25 29, 42 34" stroke="#1a1a1a" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M42 34 L46 31" stroke="#1a1a1a" stroke-width="1.5" stroke-linecap="round"/>
+          <circle cx="5" cy="34.5" r="1.5" fill="#1a1a1a" opacity=".3"/>
+        </svg>
+        <div class="nav-logo-text">
+          <span class="club-name">Figure Skating Club</span>
+          <span class="city">Madison, Wisconsin</span>
+        </div>
+      </a>
+      <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="events.html" class="active">Events</a>
+        <a href="coaches.html">Coaches</a>
+        <a href="membership.html">Membership</a>
+        <a href="about.html">About</a>
+        <a href="membership.html" class="nav-cta">Join Now</a>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>Events</h1>
+      <p>Competitions, ice shows, test sessions, and community events throughout the year.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">What's Coming Up</span>
+        <h2>Upcoming Events</h2>
+        <div class="divider"></div>
+        <p>Mark your calendar for these upcoming FSCM events.</p>
+      </div>
+      <div class="card-grid cols-2">
+        <div class="event-card">
+          <div class="event-date-bar"><span class="date">May 9, 2026</span><span class="event-tag">Ice Show</span></div>
+          <div class="event-body">
+            <h3>Blades on Broadway</h3>
+            <p>Our annual ice show featuring performances from skaters of all ages and levels. This year's Broadway theme promises to be spectacular.</p>
+            <a href="https://www.fscmadison.com/events" class="btn btn-primary btn-sm">Get Tickets</a>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-date-bar"><span class="date">July 18, 2026</span><span class="event-tag">Competition</span></div>
+          <div class="event-body">
+            <h3>Badger Classic</h3>
+            <p>A Compete USA competition at Madison Ice Arena. Early-bird registration discount available through May 19, 2026.</p>
+            <a href="https://www.fscmadison.com/events" class="btn btn-primary btn-sm">Register Today</a>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-date-bar"><span class="date">April 10&ndash;12, 2026</span><span class="event-tag">Competition</span></div>
+          <div class="event-body">
+            <h3>Madison Open</h3>
+            <p>An annual competition hosted at Madison Ice Arena. A great opportunity to showcase skills in a supportive environment.</p>
+            <a href="https://www.fscmadison.com/events" class="btn btn-primary btn-sm">Learn More</a>
+          </div>
+        </div>
+        <div class="event-card">
+          <div class="event-date-bar"><span class="date">Monthly</span><span class="event-tag">Testing</span></div>
+          <div class="event-body">
+            <h3>Test Sessions</h3>
+            <p>Virtual sessions on the 14th of each month. In-person sessions on the last day of select months.</p>
+            <a href="https://www.fscmadison.com/events" class="btn btn-primary btn-sm">View Schedule</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Get Involved</span>
+        <h2>Programs &amp; Activities</h2>
+        <div class="divider"></div>
+        <p>Beyond competitions, FSCM offers many ways to participate.</p>
+      </div>
+      <div class="card-grid cols-3">
+        <div class="card">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <h3>Synchronized Skating</h3>
+          <p>Home to the Madison Ice Diamonds and Wisconsin Inspire, competing at regional and national levels.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+          <h3>Community Service</h3>
+          <p>Our annual community service project gives members a chance to give back to the Madison community.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+          <h3>Club Calendar</h3>
+          <p>Subscribe to our Google Calendar to stay up to date on all club sessions and deadlines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container" style="max-width:700px;">
+      <div class="section-header">
+        <span class="section-label">Recognition</span>
+        <h2>Annual Awards</h2>
+        <div class="divider"></div>
+        <p>Each year, FSCM recognizes outstanding members.</p>
+      </div>
+      <div class="card-grid cols-2">
+        <div class="card text-center"><h3>Patti Puccio Sportsmanship Award</h3><p>Recognizing exceptional sportsmanship, dedication, and positive attitude.</p></div>
+        <div class="card text-center"><h3>Dorothy Sinykin Trophy</h3><p>Honoring outstanding achievement and contribution to FSCM.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner">
+    <div class="container">
+      <span class="section-label">Join the Fun</span>
+      <h2>Want to Participate?</h2>
+      <p>Become a member to register for competitions, perform in ice shows, and take tests.</p>
+      <a href="membership.html" class="btn btn-white btn-lg">Join FSCM</a>
+    </div>
+  </section>
+
+
+<!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-wrap">
+            <svg viewBox="0 0 50 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="25" y1="2" x2="25" y2="10" stroke="rgba(255,255,255,.6)" stroke-width="1.5"/>
+              <circle cx="25" cy="1" r="1.8" fill="rgba(255,255,255,.6)"/>
+              <path d="M17 20 Q21 10, 25 8 Q29 10, 33 20" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.5)" stroke-width="1.5"/>
+              <rect x="16" y="19" width="18" height="3" rx=".5" fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+              <line x1="19" y1="22" x2="19" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <line x1="25" y1="22" x2="25" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <line x1="31" y1="22" x2="31" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="1.3"/>
+              <line x1="13" y1="28" x2="16" y2="25" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+              <line x1="37" y1="28" x2="34" y2="25" stroke="rgba(255,255,255,.4)" stroke-width="1.2"/>
+              <line x1="10" y1="28" x2="40" y2="28" stroke="rgba(255,255,255,.5)" stroke-width="2" stroke-linecap="round"/>
+              <path d="M6 34 Q25 29, 42 34" stroke="rgba(255,255,255,.4)" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <path d="M42 34 L46 31" stroke="rgba(255,255,255,.4)" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+            <span>Figure Skating Club of Madison</span>
+          </div>
+          <p>A nonprofit promoting figure skating in Madison, Wisconsin since 1963.</p>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="events.html">Events</a></li>
+            <li><a href="coaches.html">Coaches</a></li>
+            <li><a href="membership.html">Membership</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Events</h4>
+          <ul>
+            <li><a href="events.html">Ice Shows</a></li>
+            <li><a href="events.html">Competitions</a></li>
+            <li><a href="events.html">Test Sessions</a></li>
+            <li><a href="events.html">Calendar</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="about.html">Contact Us</a></li>
+            <li><a href="membership.html">Join FSCM</a></li>
+            <li><a href="about.html">Leadership</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Figure Skating Club of Madison. All rights reserved.</span>
+        <span>A U.S. Figure Skating Member Club</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.addEventListener('scroll', () => {
+      document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 20);
+    });
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.card, .event-card, .info-block').forEach(el => {
+      el.classList.add('reveal');
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
